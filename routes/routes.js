@@ -3,7 +3,7 @@ const typesRoutes = require('./types');
 
 const appRouter = (app, fs) => {
   app.get('/', (req, res) => {
-    res.send('pokemone weakness api');
+    res.send('pokemon weakness api');
   });
 
   pokemonRoutes(app, fs);
