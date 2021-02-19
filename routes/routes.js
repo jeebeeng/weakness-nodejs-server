@@ -1,5 +1,5 @@
-const pokemonRoutes = require('./pokemon');
-const typesRoutes = require('./types');
+import pokemonRoutes from './pokemon';
+import typesRoutes from './types';
 
 const appRouter = (app, fs) => {
   app.get('/', (req, res) => {
@@ -10,4 +10,4 @@ const appRouter = (app, fs) => {
   typesRoutes(app, fs);
 };
 
-module.exports = appRouter;
+export default appRouter;

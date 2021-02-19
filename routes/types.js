@@ -1,14 +1,25 @@
 const typesRoutes = (app, fs) => {
   const dataPath = './data/types.json';
 
-  app.get('/types', (req, res) => {
-    fs.readFile(dataPath, 'utf8', (err, data) => {
+  const readFile = (
+    callback,
+    returnJson = false,
+    filePath = dataPath,
+    encoding = 'utf8'
+  ) => {
+    fs.readFile(filePath, encoding, (err, data) => {
       if (err) {
         throw err;
       }
-      res.send(JSON.parse(data));
+      callback(returnJson ? JSON.parse(data) : data);
     });
+  };
+
+  app.get('/types', (req, res) => {
+    readFile((data) => {
+      res.send(data);
+    }, true);
   });
 };
 
-module.exports = typesRoutes;
+export default typesRoutes;
