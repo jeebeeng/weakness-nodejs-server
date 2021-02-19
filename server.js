@@ -1,13 +1,12 @@
-import express from 'express';
-import { json, urlencoded } from 'body-parser';
-import cors from 'cors';
-import fs from 'fs';
-
+const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
+const fs = require('fs');
+const cors = require('cors');
 
-app.use(json());
+app.use(bodyParser.json());
 app.use(cors());
-app.use(urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const routes = require('./routes/routes.js')(app, fs);
 

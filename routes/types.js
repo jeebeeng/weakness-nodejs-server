@@ -22,4 +22,4 @@ const typesRoutes = (app, fs) => {
   });
 };
 
-export default typesRoutes;
+module.exports = typesRoutes;

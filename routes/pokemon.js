@@ -22,4 +22,4 @@ const pokemonRoutes = (app, fs) => {
   });
 };
 
-export default pokemonRoutes;
+module.exports = pokemonRoutes;
